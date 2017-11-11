@@ -1,0 +1,7 @@
+    FCC "g GCE 2017"
+	FCB 0x80
+    FDB musicd
+    FCB 0xF8, 0x50, 0x20, -0x45
+    FCC "ASTONHACK"
+	FCB 0x80
+    FCB 0
