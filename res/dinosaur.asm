@@ -1,5 +1,5 @@
 dinosaur_scale EQU 25
-dinosaur
+player_sprite
     FCB 3
     FCB 0,1*dinosaur_scale
     FCB 1*dinosaur_scale,0

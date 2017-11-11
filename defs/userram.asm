@@ -5,5 +5,8 @@ high_score      EQU player_score+7 ; 6 bytes again
 
 player_x        EQU high_score+7
 player_y        EQU player_x+1
-speed           EQU player_y+1
-active_floors   EQU speed+1
+bullet_active   EQU player_y+1 ; stores a 1 if a bullet is active on the screen.
+bullet_x        EQU bullet_active+1 ; the bullets x cord
+bullet_y        EQU bullet_x+1 ; the bullets y cord.
+count           EQU bullet_y+1; ; count of stack items
+fall            EQU count+1;
