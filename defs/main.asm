@@ -81,6 +81,14 @@ bad
     LDA #-$7f
     STA bullet_y
     JSR Random_3
+    CMPA #-$65
+    BGT gen_continued
+    ADDA #$30
+gen_continued
+    CMPA #$65
+    BLE gen_final
+    SUBA #$30
+gen_final
     STA enemy_x
     LDB #$75
     STB enemy_y
