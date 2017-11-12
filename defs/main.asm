@@ -20,7 +20,12 @@ init_game
     STA speed
     ; clear score
     LDX #player_score
-    JSR Clear_Score  
+    JSR Clear_Score
+    LDA #0
+    STA killed
+    
+    LDA #2
+    STA player_speed
 
 ;; the main game loop.
 main
@@ -73,6 +78,24 @@ collisions
     CMPA temp
     BGT input
 bad
+    INC killed
+    LDA killed
+    CMPA #5
+    BEQ killed_5
+    CMPA #15
+    BEQ killed_15
+    BRA after
+killed_5
+    LDA #2
+    STA speed
+    BRA after
+killed_15
+    LDA #3
+    STA speed
+    LDA #3
+    STA player_speed
+    
+after
     LDA #100
     LDX #player_score
     JSR Add_Score_a
@@ -103,13 +126,13 @@ input
 
 right_movement
     LDA player_x
-    ADDA #2
+    ADDA player_speed
     STA player_x
     BRA movement_done
 
 left_movement
     LDA player_x
-    SUBA #2
+    SUBA player_speed
     STA player_x
     BRA movement_done
 
