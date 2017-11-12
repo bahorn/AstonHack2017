@@ -12,10 +12,7 @@ init_game
     STA bullet_x
     STA bullet_y
     ; set up some enemies on the stack
-    JSR Random_3 ; stores a random value in Register A, which is where we want it.
-    LDB #$75
-    STA enemy_x
-    STB enemy_y
+    JSR new_enemy
     LDA #1
     STA speed
     ; clear score
@@ -103,18 +100,7 @@ after
     STA bullet_active
     LDA #-$7f
     STA bullet_y
-    JSR Random_3
-    CMPA #-$65
-    BGT gen_continued
-    ADDA #$30
-gen_continued
-    CMPA #$65
-    BLE gen_final
-    SUBA #$30
-gen_final
-    STA enemy_x
-    LDB #$75
-    STB enemy_y
+    JSR new_enemy
 
 input
     ;; read input
@@ -197,6 +183,22 @@ done
     LDX #raptor_sprite
     JSR Draw_VLc
     JMP main ; loop until the game ends.
+
+
+new_enemy
+    JSR Random_3
+    CMPA #-$60
+    BGT gen_continued
+    ADDA #$30
+gen_continued
+    CMPA #$60
+    BLE gen_final
+    SUBA #$30
+gen_final
+    STA enemy_x
+    LDB #$75
+    STB enemy_y
+    RTS
 
 ; subroutine used to fix the pen so we can render more objects.
 ; use like a normal Moveto_d.
