@@ -136,7 +136,7 @@ movement_done
     CMPA bullet_active
     BEQ no_button
     LDA player_x
-    ADDA #5
+    ;ADDA #5
     STA bullet_x
     LDA player_y
     STA bullet_y

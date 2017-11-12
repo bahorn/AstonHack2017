@@ -11,6 +11,7 @@ draw_title_screen
     LDA #$7f
     LDB #-$80
     JSR Print_Str_d
+    
     LDU #title_screen_string
     LDA #-$30
     LDB #-$60
@@ -19,4 +20,11 @@ draw_title_screen
     LDA #-$60
     LDB #-$50
     JSR Print_Str_d
+
+    ;LDA #$10
+    ;LDB #$10
+    ;JSR Moveto_d
+    
+    ;LDX #title_screen_sprite
+    ;JSR Draw_VLc
     BRA title_screen
