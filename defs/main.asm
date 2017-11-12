@@ -18,6 +18,9 @@ init_game
     STB enemy_y
     LDA #1
     STA speed
+    ; clear score
+    LDX #player_score
+    JSR Clear_Score  
 
 ;; the main game loop.
 main
@@ -49,6 +52,7 @@ bottom
     STA enemy_x
     LDB #$75
     STB enemy_y
+    jmp game_over
 ; this is actually not correct, but works in *most* cases.
 collisions
     LDA bullet_active

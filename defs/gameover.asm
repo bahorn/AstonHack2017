@@ -5,8 +5,8 @@ game_over
     CMPA    #$00
     BEQ draw_game_over
     ; check if we got a high score and save it now.
-    LDU high_score
-    LDX player_score
+    LDU #high_score
+    LDX #player_score
     JSR New_High_Score
     JMP title_screen
     ; draw the game over screen
