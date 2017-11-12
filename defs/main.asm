@@ -64,13 +64,13 @@ collisions
     ;; drop sign bit
     LSLA
     LSRA
-    CMPA #20
+    CMPA #18
     BGT input
     LDA enemy_y
-    SUBA bullet_y
-    LSLA
-    LSRA
-    CMPA #12
+    LDB bullet_y
+    SUBB #12
+    STB temp
+    CMPA temp
     BGT input
 bad
     LDA #100
