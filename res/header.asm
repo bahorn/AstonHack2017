@@ -1,6 +1,6 @@
     FCC "g GCE 2017"
 	FCB 0x80
-    FDB music1
+    FDB musicd
     FCB 0xF8, 0x50, 0x20, -0x45
     FCC "ASTON HACK"
 	FCB 0x80

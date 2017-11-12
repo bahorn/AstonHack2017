@@ -13,5 +13,6 @@ init
     JSR Clear_Score  
     LDX #high_score
     JSR Clear_Score
- 
+    LDA #1
+    STA Vec_Music_Flag
     JMP title_screen
