@@ -1,6 +1,6 @@
 ; title screens
 title_screen_string
-    FCB "DINOSAUR CONTRA",0x80
+    FCB "GOOSE V RAPTORS",0x80
 
 ; game over screens
 game_over_string
