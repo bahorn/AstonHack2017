@@ -60,14 +60,18 @@ collisions
     LDA bullet_active
     CMPA #00
     BEQ input
-    LDA enemy_x
-    ADDA #10
+
+	LDA enemy_x
+	ADDA #10
     SUBA bullet_x
+	BVS input
+    ;; check for overflow, if we find one, the result isn't correct.
     ;; drop sign bit
-    LSLA
+    ;LSLA
     LSRA
-    CMPA #18
+    CMPA #10
     BGT input
+
     LDA enemy_y
     LDB bullet_y
     SUBB #12
