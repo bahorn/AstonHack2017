@@ -1,9 +1,9 @@
 ; ram starts at $C880 til $CBEA
 ; store the scores
-player_score    EQU $C880 ; this is 6 bytes.
-high_score      EQU player_score+7 ; 6 bytes again
+high_score      EQU $CBEB ; 7 bytes at system memory high score location (last byte is terminator 0x80)
+player_score    EQU $C880 ; 7 bytes for player score (last byte is terminator 0x80)
 
-player_x        EQU high_score+7
+player_x        EQU player_score+7
 player_y        EQU player_x+1
 bullet_active   EQU player_y+1 ; stores a 1 if a bullet is active on the screen.
 bullet_x        EQU bullet_active+1 ; the bullets x cord
